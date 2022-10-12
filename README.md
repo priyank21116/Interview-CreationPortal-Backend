@@ -11,7 +11,7 @@ containing models, routes, controller
 Mongo DB Atlas Database
 ![mongoAtlas](./images/mongoAtlas.png)
 
-### Postman- containing all functional neccesaryh APIs
+### Postman- containing all functional and neccesary APIs
 ![postman](./images/postman.png)
 
 ## Basic Requirements
