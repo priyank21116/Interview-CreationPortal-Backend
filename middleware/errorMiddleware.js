@@ -8,5 +8,8 @@ const errorHandler =(err,req,res,next)=>{
       stack: process.env.NODE_ENV === 'production' ?null : err.stack
    })
 }
-
-module.exports ={ errorHandler }
+const invalidPathHandler = (request, response, next) => {
+   response.status(400)
+   response.send('invalid path')
+ }
+module.exports ={ errorHandler ,invalidPathHandler}

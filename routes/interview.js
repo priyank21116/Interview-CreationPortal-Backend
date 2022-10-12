@@ -8,11 +8,13 @@ const {
    getinterviewById   
 } = require( '../controllers/CInterview')
 
+const {checkparticipants, slotavailiblity} = require('../middleware/checkavalaibility')
 
 
-router.route('/').get(getallinterviews).post(postnewInterview)
-router.route('/:id').put(updateinterview).delete(deleteinterview).get(getinterviewById)
 
+router.route('/').get(getallinterviews).post(checkparticipants,slotavailiblity,postnewInterview)
+router.route('/:id').put(checkparticipants, slotavailiblity,updateinterview).delete(deleteinterview).get(getinterviewById)
 
+   
 
 module.exports =router
