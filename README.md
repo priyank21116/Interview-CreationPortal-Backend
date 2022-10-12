@@ -1,4 +1,4 @@
-# Backend of InterView Creation Portal
+# Backend of Interview Creation Portal
 ### Tect used -- Node js , Express js , Mongo DB Atlas, Mongoose.
 ---
 ## frontend - https://github.com/priyank21116/Interview-Creation-Portal
