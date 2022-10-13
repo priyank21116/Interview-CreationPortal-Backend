@@ -1,9 +1,7 @@
 const Interview = require('../models/Interview')
 const {checkparticipants} = require('../middleware/checkavalaibility')
 
-// @desc Get Goals
-// @route GET  -- > /api/
-// @access Private
+
 const getallinterviews=async(req,res)=>{
   
    const goals = await Interview.find()
@@ -16,14 +14,9 @@ const getinterviewById = async(req,res)=>{
    res.status(200).json(Idetail)
 }
 
-// @desc Make Goals
-// @route POST --->  /api/
-// @access Private
+
 const postnewInterview=async(req,res)=>{
-   console.log("::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::","Hello")
-   // req.body.stime : new Date(JSON.parse(req.body.stime))
-   // req.body.etime = new Date(JSON.parse(req.body.etime))
-   // console.log()
+
    let obj ={
       participants: req.body.participants,
       stime: new Date((req.body.stime)),
@@ -31,24 +24,15 @@ const postnewInterview=async(req,res)=>{
       discription: req.body.discription
    }
 
-   console.log(obj)
-   // if (!req.body){
-   //    res.status(403).json({ succes:false, message:"Data not avalaible"})  
-   //    // throw new Error('Please add neccesary details') // Default error handler --html page
-   // }
-   // if (req.body.participants.length < 2){
-   //    res.status(403).json({ succes: false, message:"There has to be 2 or more Participants in an interview"})
-   // }
 
-   const detail = await Interview.create(req.body)
-   // .then(res.send(obj)).catch(error => res.send(error))
+   const detail = await Interview.create(obj)
+   .then(res.status(200).json({ succes:true, message:"Scheduled new interview"}))
+   // .catch(error => res.send(error)) 
 
-   res.status(200).json({succes : true ,detail})
+   // res.status(200).json({succes : true ,detail})
 }
 
-// @desc Update Goals
-// @route GET/api/:id
-// @access Private
+
 const updateinterview=async(req,res)=>{
    let detail = await Interview.findById(req.params.id)
    if (!req.body){
@@ -74,9 +58,7 @@ const updateinterview=async(req,res)=>{
    })
 }
 
-// @desc delete Goals
-// @route GET /api/:id
-// @access Private
+
 const deleteinterview = async(req,res)=>{
    const intervieww= await Interview.findById(req.params.id)
    if(!intervieww){

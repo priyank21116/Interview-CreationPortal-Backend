@@ -6,12 +6,13 @@ const Candidate = require("../models/Candidate");
 
 
 router.post('/new', async(req,res)=>{
-   // console.log("REQUEST CAMEE",req.body)
+   
    const candidatee= Candidate.create(req.body);
   
    res.status(200).json({
       succes: true,
       candidatee,
+      message: 'Added Succesfully'
    })
 })
 
@@ -56,13 +57,12 @@ router.put('/update/:id', async(req,res)=>{
          succes: false,
          message: 'Could not found the Candidate details'
       })}
-   
 
    detail = await Candidate.findByIdAndUpdate(req.params.id, req.body,{new:true, useFindAndModify:false,runValidators: true})
 
    res.status(200).json({
       succes: true,
-      detail,
+      message:"Updated"
    })
 })
 
