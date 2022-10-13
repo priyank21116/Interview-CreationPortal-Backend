@@ -35,10 +35,10 @@ const postnewInterview=async(req,res)=>{
 
 const updateinterview=async(req,res)=>{
    let detail = await Interview.findById(req.params.id)
-   if (!req.body){
-      res.status(403).json({ succes:false, message:"Data not avalaible"})  
-      // throw new Error('Please add neccesary details') // Default error handler --html page
-   }
+   // if (!req.body){
+   //    res.status(403).json({ succes:false, message:"Data not avalaible"})  
+   //    // throw new Error('Please add neccesary details') // Default error handler --html page
+   // }
 
    if(!detail){
       return res.status(500).json({
@@ -46,14 +46,12 @@ const updateinterview=async(req,res)=>{
          message: 'Could not found the Interviewer details'
       })}
 
-   if (req.body.participants.length < 2){
-         res.status(403).json({ succes: false, message:"There has to be 2 or more Participants in an interview"})
-      }
 
    detail = await Interview.findByIdAndUpdate(req.params.id, req.body,{new:true, useFindAndModify:false,runValidators: true})
 
    res.status(200).json({
       succes: true,
+      message:"Interview Updated Sucessfully",
       detail,
    })
 }

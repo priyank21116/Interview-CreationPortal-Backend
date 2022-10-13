@@ -10,7 +10,7 @@ const { urlencoded } = require('body-parser')
 const cors = require("cors")
 const app = express()
  
-const port=process.env.PORT || 5000
+const port=process.env.PORT || 5000 
 
 connectDB() 
 
@@ -38,4 +38,4 @@ app.use(errorHandler)
 app.use(invalidPathHandler)
 
 
-app.listen(port,()=>(console.log(`Server is listening for request at ${port}`)))
+app.listen(port,()=>(console.log(`Server is listening for request at ${port}`)))  

@@ -12,13 +12,14 @@ const checkparticipants =(req,res,next) =>{
    stime= new Date(stime)
    etime= new Date(etime)
 
-   if (stime< Date.now()){res.status(400).json({message: 'This is only for schedeling future meetings'})}
-   if (etime< stime){res.status(400).json({message: 'Meeting end time details are inappropriate'})}
+   if (stime< Date.now()){ res.status(400).json({message: 'This is only for schedeling future meetings'}) ; return ;}
+   if (etime< stime){res.status(400).json({message: 'Meeting end time details are inappropriate'}) ; return ;}
    
    if (req.body.participants.length < 2){
       res.status(400).json({ 
          message: "Atleast two participants require to schedule meet"
       })
+      return
    }
    next()
 
