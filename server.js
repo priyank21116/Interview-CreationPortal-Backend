@@ -13,15 +13,15 @@ const app = express()
 const port=process.env.PORT || 5000 
 
 connectDB() 
-
+app.use(cors())    
 
 // to access and use api request
 app.use(express.json())
 app.use(urlencoded({extended:false}))
-app.use(cors({
-   origin: "http://localhost:3000",
-   methods: ['GET','POST','PUT','DELETE']
-}))    
+// app.use(cors({
+//    origin: "https://clinquant-fairy-802ced.netlify.app/",
+//    methods: ['GET','POST','PUT','DELETE']
+// }))    
 
 
 
