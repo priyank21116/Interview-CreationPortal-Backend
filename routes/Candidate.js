@@ -59,11 +59,12 @@ router.put('/update/:id', async(req,res)=>{
       })}
 
    detail = await Candidate.findByIdAndUpdate(req.params.id, req.body,{new:true, useFindAndModify:false,runValidators: true})
-
+   .then(
    res.status(200).json({
       succes: true,
-      message:"Updated"
-   })
+      message:"Candidate Updated"
+   }))
+   .catch(err=> console.log(err))
 })
 
 module.exports =router

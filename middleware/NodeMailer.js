@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 let transporter = nodemailer.createTransport({
    service: 'gmail',
    auth: {
-     type: 'OAuth2',
+     
      user: process.env.MAIL_USERNAME,
      pass: process.env.MAIL_PASSWORD,
     
@@ -16,16 +16,22 @@ let transporter = nodemailer.createTransport({
    let sendto = participants.map(x => x.email)
 
    let mailOptions = {
-      from:'sampleemail@gmail.com',
+      from:'priyankgupta2120@gmail.com',
       to: sendto,
       subject: 'Interview Schedule',
-      text: `Greetings!!
-             You have new interview schedule
-             Details:-
-             Date - ${stime.getDate()} -  ${stime.getMonth()} - ${stime.getFullYear()}
-             From - ${stime.getHours()} -  ${stime.getMonth()}
-             To -${etime.getHours()} -  ${etime.getMonth()}
-             discription - ${discription}`
+      text: `
+      Greetings!!
+
+
+      You have new interview schedule.
+      Details are as follows:-
+
+      -Date - ${stime.getDate()} /  ${stime.getMonth()} / ${stime.getFullYear()}
+      -From - ${stime.getHours()} :  ${stime.getMinutes()}
+      -To -${etime.getHours()} : ${etime.getMinutes()}
+      -discription - ${discription}
+             
+      Thanku and Regards`
     };
 
     transporter.sendMail(mailOptions, function(err, data) {
@@ -38,22 +44,26 @@ let transporter = nodemailer.createTransport({
 
  }
 
- const updateInterview =({participants,stime,etime,discription}) =>{
+ const updateInterviewmail =({participants,stime,etime,discription}) =>{
 
    let sendto = participants.map(x => x.email)
 
    let mailOptions = {
-      from:'sampleemail@gmail.com',
+      from:'priyankgupta2120@gmail.com',
       to: sendto,
       subject: 'Interview Schedule',
-      text: `Greetings!!
-             Your interview schedule has been updated
-             Details:-
-             Date - ${stime.getDate()} -  ${stime.getMonth()} - ${stime.getFullYear()}
-             From - ${stime.getHours()} -  ${stime.getMonth()}
-             To -${etime.getHours()} -  ${etime.getMonth()}
-             discription - ${discription}
-             `
+      text: `
+    Greetings!!
+
+    Your interview schedule has been updated
+    New schedule is as follows:-
+  
+    -Date - ${stime.getDate()} /  ${stime.getMonth()} / ${stime.getFullYear()}
+    -From - ${stime.getHours()} : ${stime.getMinutes()}
+    -To -${etime.getHours()} : ${etime.getMinutes()}
+    -discription - ${discription}
+                    
+    Thanku and Regards`
     };
 
     transporter.sendMail(mailOptions, function(err, data) {
@@ -72,17 +82,23 @@ let transporter = nodemailer.createTransport({
    let sendto = participants.map(x => x.email)
 
    let mailOptions = {
-      from:'sampleemail@gmail.com',
+      from:'priyankgupta2120@gmail.com',
       to: sendto,
       subject: 'Interview Cancelled',
-      text: `Greetings!!
-             Your scheduled interview stands cancel.
-             Details:-
-             Date - ${stime.getDate()} -  ${stime.getMonth()} - ${stime.getFullYear()}
-             From - ${stime.getHours()} -  ${stime.getMonth()}
-             To -${etime.getHours()} -  ${etime.getMonth()}
-             discription - ${discription}
-             We will let you know about further proceeding soon`
+      text: `
+      Greetings!!
+
+      Your scheduled interview stands cancel.
+      Details:-
+            
+      Date - ${stime.getDate()} /  ${stime.getMonth()} / ${stime.getFullYear()}
+      From - ${stime.getHours()} :  ${stime.getMinutes()}
+      To -${etime.getHours()} :  ${etime.getMinutes()}
+      discription - ${discription}
+
+      We will let you know about further proceeding soon
+                   
+      Regards`
     };
 
     transporter.sendMail(mailOptions, function(err, data) {
@@ -95,7 +111,7 @@ let transporter = nodemailer.createTransport({
 
  }
 
- module.exports ={newschedule,updateInterview,interviewCancelled}
+ module.exports ={newschedule,updateInterviewmail,interviewCancelled}
 
 
 

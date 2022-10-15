@@ -7,13 +7,13 @@ const checkparticipants =(req,res,next) =>{
 
    let {stime,etime,participants}= req.body
    if (!stime || !etime || !participants){
-      res.status(400).json({message: 'Please provide necessary details'})
+      res.status(400).json({message: 'Please enter necessary details'})
    }
    stime= new Date(stime)
    etime= new Date(etime)
 
    if (stime< Date.now()){ res.status(400).json({message: 'This is only for schedeling future meetings'}) ; return ;}
-   if (etime< stime){res.status(400).json({message: 'Meeting end time details are inappropriate'}) ; return ;}
+   if (etime< stime){res.status(400).json({message: 'Meeting End time details are inappropriate'}) ; return ;}
    
    if (req.body.participants.length < 2){
       res.status(400).json({ 
@@ -55,7 +55,7 @@ const slotavailiblity =async(req,res,next)=>{
             (stime <= doc.startTime && etime >= doc.etime) 
             ){
                res.status(400)
-               .json({message:`Participant ${element.name} have another meeeting at that time frame. You would have to change times`})
+               .json({message:`Participant ${element.name} have another meeeting at that time period. Please re-schedule the meet`})
                return
             };
          }} 
