@@ -3,7 +3,7 @@
 ## Website link:-
 ### https://interviewportalprk.netlify.app/
 ---
-### Tect used -- Node js , Express js , Mongo DB Atlas, Mongoose.
+### Tect used -- Node js , Express , Mongo DB Atlas, Mongoose.
 ---
 ## frontendCode - https://github.com/priyank21116/Interview-Creation-Portal
 
