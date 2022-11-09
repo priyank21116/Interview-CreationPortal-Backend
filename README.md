@@ -24,7 +24,7 @@
 ## Basic Feature
 - An interview creation route where the admin can create an interview by selecting participants, start time and end time and description. Backend should throw error with proper error message if: 
 -- Any of the participants is not available during the scheduled time (i.e, has another interview scheduled)
--- No of participants is less than 2. Check for valid inputs 
+-- No of participants is less than 2. Check for valid inputs .
 -- And Other request checks.
 - An Route to get all interviews for interviews-list-page where.Beside these routes are setted to get interview detail by Id and Cancel interview
 - An interview edit routes where the data in DB id is updated after performing all validations as on the creation route.
